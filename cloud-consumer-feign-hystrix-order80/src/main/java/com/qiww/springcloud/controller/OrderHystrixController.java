@@ -57,4 +57,12 @@ public class OrderHystrixController {
     public String paymentGlobalFallbackMethod() {
         return "Global 222 对方系统繁忙或者已经down机，请10秒后再尝试，ssssss";
     }
+
+    //=====服务熔断
+
+    @GetMapping("/consumer/payment/circuit/{id}")
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
+        String result = paymentHystrixService.paymentCircuitBreaker(id);
+        return result;
+    }
 }

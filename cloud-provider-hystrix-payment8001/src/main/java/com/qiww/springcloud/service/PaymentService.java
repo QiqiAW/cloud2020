@@ -9,6 +9,7 @@ package com.qiww.springcloud.service;
 public interface PaymentService {
     /**
      * 正常访问的方法
+     *
      * @param id
      * @return String
      */
@@ -16,6 +17,7 @@ public interface PaymentService {
 
     /**
      * 制造错误的方法（超时、算术异常）
+     *
      * @param id
      * @return String
      */
@@ -23,8 +25,17 @@ public interface PaymentService {
 
     /**
      * HystrixCommand注解中的fallback方法
+     *
      * @param id
      * @return String
      */
     public String paymentTimeoutFallbackMethod(Integer id);
+
+    /**
+     * 服务熔断测试方法
+     *
+     * @param id
+     * @return String
+     */
+    public String paymentCircuitBreaker(Integer id);
 }
