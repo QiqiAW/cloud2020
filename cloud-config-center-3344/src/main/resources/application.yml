@@ -12,8 +12,25 @@ spring:
           search-paths:
             - springcloud-config  #搜索目录
       label: master #读取分支
+  #curl -X POST "http://localhost:3344/actuator/bus-refresh/{destination}"  destination:目的地<-config-client:3355 下面开启可以让这个生效 不过可以不开启重要是地址正确，最后有个斜杠
+#    bus:
+#      refresh:
+#        enabled: true
+  #rabbitmq的相关配置
+  rabbitmq:
+    host: alyqi
+    port: 5672
+    username: qiww
+    password: 123456
 
 eureka:
   client:
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka
+
+#rabbitmq相关配置
+management:
+  endpoints: #暴露bus刷新配置的端点
+    web:
+      exposure:
+        include: "bus-refresh"
