@@ -38,6 +38,9 @@
         <module>cloudalibaba-provider-payment9003</module>
         <module>cloudalibaba-provider-payment9004</module>
         <module>cloudalibaba-consumer-nacos-order84</module>
+        <module>seata-order-service2001</module>
+        <module>seata-storage-service2002</module>
+        <module>seata-account-service2003</module>
     </modules>
 
     <!--统一管理jar包版本-->
@@ -51,6 +54,7 @@
         <mysql.version>8.0.31</mysql.version>
         <druid.version>1.1.16</druid.version>
         <mybatis.spring.boot.version>2.1.1</mybatis.spring.boot.version>
+        <mp.version>3.4.2</mp.version>
     </properties>
     <!--子模块继承之后，提供作用：锁定版本+子module不用谢groupId和version-->
     <dependencyManagement>
@@ -60,6 +64,11 @@
                 <artifactId>maven-project-info-reports-plugin</artifactId>
                 <version>3.0.0</version>
             </dependency>-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mp.version}</version>
+            </dependency>
             <!--spring boot 2.2.2-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -80,7 +89,8 @@
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2.1.0.RELEASE</version>
+                <version>2.2.0.RELEASE</version>
+<!--                <version>2.1.0.RELEASE</version>-->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
